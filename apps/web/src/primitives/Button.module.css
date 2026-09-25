@@ -1,0 +1,75 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 40px;
+  padding: 0 16px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease,
+    border-color 0.15s ease;
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+
+.button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.primary {
+  background: var(--ink);
+  color: var(--canvas);
+  border-color: var(--ink);
+}
+
+@media (hover: hover) {
+  .primary:hover:not(:disabled) {
+    background: var(--canvas);
+    color: var(--ink);
+    border-color: var(--strong);
+  }
+}
+
+.secondary {
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--strong);
+}
+
+@media (hover: hover) {
+  .secondary:hover:not(:disabled) {
+    background: var(--ink);
+    color: var(--canvas);
+    border-color: var(--ink);
+  }
+}
+
+.ghost {
+  background: transparent;
+  color: var(--slate);
+  border-color: transparent;
+}
+
+@media (hover: hover) {
+  .ghost:hover:not(:disabled) {
+    color: var(--ink);
+  }
+}
+
+.button:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  box-shadow:
+    0 0 0 1px var(--ink),
+    0 0 0 4px var(--focus-ring);
+  border-radius: 6px;
+}

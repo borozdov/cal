@@ -1,0 +1,185 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tabs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
+  gap: 4px;
+}
+
+.tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  padding: 5px 0 4px;
+  border: 1px solid var(--hairline);
+  border-radius: 6px;
+  background: none;
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.1;
+  cursor: pointer;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.tabWeekday {
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: var(--slate);
+}
+
+.tabBadge {
+  min-height: 12px;
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  font-size: 10px;
+  color: var(--slate);
+}
+
+.tabOn {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--canvas);
+}
+
+.tabOn .tabWeekday,
+.tabOn .tabBadge {
+  color: inherit;
+}
+
+@media (hover: hover) {
+  .tab:not(.tabOn):hover {
+    border-color: var(--strong);
+  }
+}
+
+.grid {
+  display: grid;
+  gap: 6px;
+}
+
+.roomy {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.mid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.dense {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 4px;
+}
+
+.days {
+  grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
+}
+
+.cell {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  padding: 0;
+  border: 1px solid var(--strong);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--ink);
+  overflow: hidden;
+  cursor: pointer;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease;
+}
+
+.dense .cell {
+  height: 34px;
+}
+
+.days .cell {
+  height: 60px;
+}
+
+@media (hover: hover) {
+  .cell:not(.on):hover {
+    background: var(--hover);
+  }
+}
+
+.on {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--canvas);
+}
+
+.time {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.dense .time {
+  font-size: 13px;
+}
+
+.sub {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  opacity: 0.7;
+}
+
+.count {
+  position: absolute;
+  top: 2px;
+  left: 5px;
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  font-size: 10px;
+  font-weight: 700;
+  opacity: 0.75;
+}
+
+.best {
+  border-width: 2px;
+  border-color: var(--ink);
+}
+
+.star {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  width: 9px;
+  height: 9px;
+}
+
+@media (max-height: 720px) {
+  .cell {
+    height: 42px;
+  }
+
+  .dense .cell {
+    height: 28px;
+  }
+}
+
+/* Tiny cells have no room for digits: a filled cell means someone can, the bold border marks the best. */
+.dense .count,
+.dense .star {
+  display: none;
+}
+
+.dense .some:not(.on) {
+  background: var(--hover);
+  border-color: var(--soft);
+}

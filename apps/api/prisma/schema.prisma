@@ -1,0 +1,46 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Poll {
+  id                   String        @id @default(uuid())
+  slug                 String        @unique
+  adminToken           String        @unique
+  title                String
+  dates                Json
+  times                Json
+  duration             Int
+  confirmedDate        String?
+  confirmedStartMinute Int?
+  createdAt            DateTime      @default(now())
+  participants         Participant[]
+}
+
+model Participant {
+  id        String             @id @default(uuid())
+  pollId    String
+  poll      Poll               @relation(fields: [pollId], references: [id], onDelete: Cascade)
+  name      String
+  createdAt DateTime           @default(now())
+  updatedAt DateTime           @updatedAt
+  slots     AvailabilitySlot[]
+
+  @@unique([pollId, name])
+  @@index([pollId])
+}
+
+model AvailabilitySlot {
+  id            String      @id @default(uuid())
+  participantId String
+  participant   Participant @relation(fields: [participantId], references: [id], onDelete: Cascade)
+  date          String
+  startMinute   Int
+
+  @@unique([participantId, date, startMinute])
+  @@index([participantId])
+}

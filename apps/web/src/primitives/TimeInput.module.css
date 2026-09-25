@@ -1,0 +1,24 @@
+.input {
+  width: 54px;
+  height: 36px;
+  padding: 0;
+  border: 1px solid var(--strong);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  font-size: 14px;
+  text-align: center;
+  transition: border-color 0.15s ease;
+}
+
+.input::placeholder {
+  color: var(--tertiary);
+}
+
+.input:focus-visible {
+  outline: none;
+  border-color: var(--ink);
+  box-shadow: 0 0 0 3px var(--focus-ring);
+}

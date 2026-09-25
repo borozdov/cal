@@ -1,0 +1,60 @@
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  background: none;
+  border: 1px solid var(--hairline);
+  border-radius: 6px;
+  color: var(--slate);
+  cursor: pointer;
+  transition:
+    color 0.15s ease,
+    border-color 0.15s ease;
+}
+
+@media (hover: hover) {
+  .toggle:hover {
+    border-color: var(--strong);
+    color: var(--ink);
+  }
+}
+
+.toggle:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  box-shadow:
+    0 0 0 1px var(--ink),
+    0 0 0 4px var(--focus-ring);
+}
+
+/* Touch target grows to 44px via a pseudo-element without growing the frame. */
+@media (pointer: coarse) {
+  .toggle::after {
+    content: '';
+    position: absolute;
+    inset: -4px;
+  }
+}
+
+.icon {
+  width: 18px;
+  height: 18px;
+}
+
+/* Visibility follows data-theme directly, so the right icon is correct on first
+   paint — no JS read, no flash (canon law 5: the lik is decided before React mounts). */
+.moon {
+  display: none;
+}
+
+:global([data-theme='titan']) .sun {
+  display: none;
+}
+
+:global([data-theme='titan']) .moon {
+  display: block;
+}

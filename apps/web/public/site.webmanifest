@@ -1,0 +1,9 @@
+{
+  "name": "Cal — планировщик групповых встреч",
+  "short_name": "Cal",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0d0d0d",
+  "theme_color": "#0d0d0d",
+  "lang": "ru"
+}

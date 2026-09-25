@@ -1,0 +1,14 @@
+{
+  "name": "@cal/shared",
+  "private": true,
+  "type": "module",
+  "version": "0.0.0",
+  "types": "./src/index.ts",
+  "main": "./src/index.ts",
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "zod": "^4.4.3"
+  }
+}

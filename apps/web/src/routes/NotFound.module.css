@@ -1,0 +1,25 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 12px;
+  height: 100%;
+}
+
+.code {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.title {
+  font-size: 22px;
+}
+
+.hint {
+  color: var(--slate);
+  margin-bottom: 8px;
+}

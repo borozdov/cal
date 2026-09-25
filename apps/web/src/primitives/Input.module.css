@@ -1,0 +1,31 @@
+.input {
+  height: 40px;
+  padding: 0 12px;
+  background: var(--surface);
+  border: 1px solid var(--hairline);
+  border-radius: 6px;
+  color: var(--ink);
+  width: 100%;
+  transition: border-color 0.15s ease;
+}
+
+.input::placeholder {
+  color: var(--tertiary);
+}
+
+.input:hover {
+  border-color: var(--strong);
+}
+
+.input:focus-visible {
+  outline: none;
+  border-color: var(--ink);
+  box-shadow: 0 0 0 3px var(--focus-ring);
+}
+
+.textarea {
+  height: auto;
+  min-height: 88px;
+  padding: 10px 12px;
+  resize: vertical;
+}

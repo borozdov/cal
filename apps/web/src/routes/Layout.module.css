@@ -1,0 +1,53 @@
+/* The whole app is one screen: header + a main area that fills the rest of the viewport. */
+.page {
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.logo {
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  font-size: 16px;
+  text-decoration: none;
+  color: var(--ink);
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo .signature {
+  margin-left: 8px;
+}
+
+.signature {
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--slate);
+}
+
+/* Scrolls only as a fallback on very small screens; normal phones fit without it. */
+.main {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 20px 16px calc(16px + env(safe-area-inset-bottom));
+  max-width: 560px;
+  width: 100%;
+  margin: 0 auto;
+}

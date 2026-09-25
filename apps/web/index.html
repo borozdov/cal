@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>CAL — планировщик групповых встреч</title>
+    <meta
+      name="description"
+      content="Найдите время, когда свободны все. Создайте опрос без регистрации, поделитесь ссылкой — участники отметят своё свободное время, а Cal найдёт совпадение."
+    />
+    <meta name="theme-color" id="meta-theme-color" content="#0d0d0d" />
+    <meta name="color-scheme" content="dark light" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script>
+      (function () {
+        try {
+          var k = 'cal.theme';
+          var t = localStorage.getItem(k);
+          if (t !== 'obsidian' && t !== 'titan') {
+            t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'titan' : 'obsidian';
+            localStorage.setItem(k, t);
+          }
+          document.documentElement.setAttribute('data-theme', t);
+          var mt = document.getElementById('meta-theme-color');
+          if (mt) mt.content = t === 'titan' ? '#fafafa' : '#0d0d0d';
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

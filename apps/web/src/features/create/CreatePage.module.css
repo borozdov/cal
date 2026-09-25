@@ -1,0 +1,281 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  height: 100%;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.stepHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.stepTitle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+}
+
+.stepNum {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 4px;
+  background: var(--ink);
+  color: var(--canvas);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.stripNav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.stripRange {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  font-size: 11px;
+  color: var(--slate);
+  min-width: 118px;
+  text-align: center;
+}
+
+.navBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--hairline);
+  border-radius: 6px;
+  background: none;
+  color: var(--ink);
+  cursor: pointer;
+  transition: border-color 0.15s ease;
+}
+
+.navBtn:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+@media (hover: hover) {
+  .navBtn:hover:not(:disabled) {
+    border-color: var(--strong);
+  }
+}
+
+.strip {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+}
+
+.day {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  height: 42px;
+  padding: 0;
+  border: 1px solid var(--strong);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--ink);
+  font-size: 17px;
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease;
+}
+
+.day:disabled {
+  border-color: var(--hairline);
+  color: var(--tertiary);
+  cursor: default;
+}
+
+.weekday {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--slate);
+}
+
+.dayOn {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--canvas);
+}
+
+.dayOn .weekday {
+  color: inherit;
+}
+
+/* Today spells it out instead of the weekday. */
+.today .weekday {
+  font-size: 8px;
+  letter-spacing: 0.02em;
+}
+
+@media (hover: hover) {
+  .day:not(.dayOn):not(:disabled):hover {
+    background: var(--hover);
+  }
+}
+
+.durationRow {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.footer {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.submit {
+  width: 100%;
+  height: 52px;
+  font-size: 14px;
+}
+
+.hint {
+  font-size: 13px;
+  color: var(--slate);
+}
+
+.ranges {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 10px;
+  min-height: 36px;
+}
+
+.range {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.dash {
+  color: var(--slate);
+}
+
+.iconBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 1px solid var(--hairline);
+  border-radius: 6px;
+  background: none;
+  color: var(--ink);
+  cursor: pointer;
+  transition: border-color 0.15s ease;
+}
+
+.range .iconBtn {
+  width: 22px;
+  border-color: transparent;
+  color: var(--slate);
+}
+
+@media (hover: hover) {
+  .iconBtn:hover {
+    border-color: var(--strong);
+    color: var(--ink);
+  }
+}
+
+.durationInput {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 32px;
+  padding: 0 8px;
+  border: 1px solid var(--strong);
+  border-radius: 6px;
+  font-size: 12px;
+  color: var(--slate);
+  cursor: text;
+}
+
+.durationInput input {
+  width: 34px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  font-size: 13px;
+  text-align: right;
+  outline: none;
+}
+
+.durationInput input:focus-visible {
+  box-shadow: none;
+}
+
+.durationInput input::placeholder {
+  color: var(--tertiary);
+  font-family: var(--font-sans);
+  font-size: 12px;
+}
+
+.durationInput:focus-within {
+  border-color: var(--ink);
+  box-shadow: 0 0 0 3px var(--focus-ring);
+}
+
+.durationOn {
+  border-color: var(--ink);
+  color: var(--ink);
+}
+
+.preview {
+  font-size: 13px;
+  color: var(--slate);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.preview b {
+  color: var(--ink);
+}
+
+.durationRow > button {
+  padding: 0 9px;
+}
+
+.previewBad {
+  color: var(--ink);
+  white-space: normal;
+}

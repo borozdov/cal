@@ -1,0 +1,197 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  height: 100%;
+}
+
+@media (max-height: 720px) {
+  .page {
+    gap: 10px;
+  }
+}
+
+.head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.title {
+  font-size: clamp(20px, 5.4vw, 30px);
+  overflow-wrap: anywhere;
+}
+
+.sideLink {
+  flex-shrink: 0;
+  padding-top: 6px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: var(--slate);
+  text-decoration: none;
+}
+
+@media (hover: hover) {
+  .sideLink:hover {
+    color: var(--ink);
+  }
+}
+
+.label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: var(--slate);
+}
+
+.hint {
+  font-size: 14px;
+  color: var(--soft);
+}
+
+.hint b {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.best {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--soft);
+}
+
+.best b {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.bestStar {
+  flex-shrink: 0;
+  width: 12px;
+  height: 12px;
+  color: var(--ink);
+}
+
+.bestNames {
+  color: var(--slate);
+}
+
+.footer {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+.actions > :last-child {
+  flex: 1;
+  min-width: 0;
+}
+
+.actions > *,
+.stack > * {
+  height: 52px;
+  font-size: 14px;
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.inlineLink {
+  padding: 0;
+  border: 0;
+  background: none;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  cursor: pointer;
+}
+
+.shareBox {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 8px 10px 10px;
+  border: 1px solid var(--hairline);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.shareButtons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.shareButtons > button {
+  height: 36px;
+  min-width: 0;
+  padding: 0 8px;
+  font-size: 12px;
+}
+
+
+.confirmed {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 24px;
+  border: 1px solid var(--strong);
+  border-radius: 8px;
+}
+
+.confirmedDay {
+  font-size: 22px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+
+.confirmedTime {
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.hintRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.textBtn {
+  flex-shrink: 0;
+  height: 28px;
+  padding: 0 8px;
+  border: 1px solid var(--strong);
+  border-radius: 4px;
+  background: none;
+  color: var(--ink);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease;
+}
+
+@media (hover: hover) {
+  .textBtn:hover {
+    background: var(--ink);
+    color: var(--canvas);
+  }
+}

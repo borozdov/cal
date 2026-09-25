@@ -1,0 +1,44 @@
+.ruler {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 3px;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  cursor: pointer;
+}
+
+.hour {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 34px;
+  border: 1px solid var(--hairline);
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  font-size: 12px;
+  color: var(--slate);
+  transition:
+    background 0.1s ease,
+    color 0.1s ease;
+}
+
+.part {
+  border-color: var(--ink);
+  color: var(--ink);
+  background: var(--hover);
+}
+
+.full {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: var(--canvas);
+}
+
+@media (hover: hover) {
+  .hour:not(.full):hover {
+    border-color: var(--strong);
+    color: var(--ink);
+  }
+}

@@ -1,0 +1,9 @@
+node_modules/
+dist/
+generated/
+.env
+.env.production
+*.local
+.DS_Store
+data/
+.claude/
