@@ -3,14 +3,62 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <title>CAL — планировщик групповых встреч</title>
+    <title>Cal — планировщик групповых встреч без регистрации</title>
     <meta
       name="description"
-      content="Найдите время, когда свободны все. Создайте опрос без регистрации, поделитесь ссылкой — участники отметят своё свободное время, а Cal найдёт совпадение."
+      content="Найдите время для встречи, когда свободны все. Предложите дни и время, отправьте ссылку — участники отметят, когда могут, лучший вариант найдётся сам. Без регистрации."
     />
-    <meta name="theme-color" id="meta-theme-color" content="#0d0d0d" />
-    <meta name="color-scheme" content="dark light" />
+    <link rel="canonical" href="https://cal.borozdov.ru/" />
+    <meta name="author" content="Никита Бороздов" />
+
+    <meta name="yandex-verification" content="80f947e774535d84" />
+    <meta name="google-site-verification" content="qOwWmdq24kGcVTyxc1GL2W8TxQk63Z5lBH3NSv4hH4s" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Cal — планировщик групповых встреч" />
+    <meta property="og:description" content="Предложите дни и время, отправьте ссылку — лучший вариант найдётся сам. Без регистрации." />
+    <meta property="og:url" content="https://cal.borozdov.ru/" />
+    <meta property="og:image" content="https://cal.borozdov.ru/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="CAL by Borozdov — планировщик групповых встреч" />
+    <meta property="og:locale" content="ru_RU" />
+    <meta property="og:site_name" content="Cal" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Cal — планировщик групповых встреч" />
+    <meta name="twitter:description" content="Предложите дни и время, отправьте ссылку — лучший вариант найдётся сам." />
+    <meta name="twitter:image" content="https://cal.borozdov.ru/og.png" />
+
+    <!-- .ico first and with sizes: Chrome prefers .ico without an explicit sizes.
+         favicon-120.png is what Yandex wants for the search snippet, as a real file. -->
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" id="meta-theme-color" content="#0d0d0d" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Cal" />
+    <meta name="application-name" content="Cal" />
+    <meta name="color-scheme" content="dark light" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+
+    <!-- WebSite names the site, so the subdomain is not guessed at. WebApplication is left
+         out on purpose: Google wants a rating from real users for it. -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Cal",
+        "alternateName": "Cal — планировщик групповых встреч",
+        "url": "https://cal.borozdov.ru/",
+        "inLanguage": "ru",
+        "author": { "@type": "Person", "name": "Никита Бороздов", "url": "https://borozdov.ru/" }
+      }
+    </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

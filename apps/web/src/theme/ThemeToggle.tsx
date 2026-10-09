@@ -1,3 +1,4 @@
+import { trackGoal } from '../lib/metrika.js';
 import { useTheme } from './useTheme.js';
 import styles from './ThemeToggle.module.css';
 
@@ -14,7 +15,11 @@ export function ThemeToggle() {
     <button
       type="button"
       className={styles.toggle}
-      onClick={() => setTheme(theme === 'obsidian' ? 'titan' : 'obsidian')}
+      onClick={() => {
+        const next = theme === 'obsidian' ? 'titan' : 'obsidian';
+        setTheme(next);
+        trackGoal('theme_toggle', { theme: next });
+      }}
       aria-label={label}
       title={label}
     >

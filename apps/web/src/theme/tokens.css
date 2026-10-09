@@ -185,3 +185,9 @@ label,
     scroll-behavior: auto !important;
   }
 }
+
+/* The Metrika pixel for readers with scripts off: present, measured, never seen. */
+.metrika-pixel {
+  position: absolute;
+  left: -9999px;
+}

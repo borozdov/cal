@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router';
 import type { Poll } from '@cal/shared';
 import { api, ApiError } from '../../api/client.js';
+import { trackGoal } from '../../lib/metrika.js';
 import { Banner } from '../../primitives/Banner.js';
 import { Button } from '../../primitives/Button.js';
 import { CopyButton } from '../../primitives/CopyButton.js';
@@ -41,6 +42,7 @@ export function OrganizerView({ poll, adminToken, onChange }: OrganizerViewProps
     setError(null);
     try {
       await api.post(`/polls/${poll.slug}/admin/${adminToken}/confirm`, parseKey(choice));
+      trackGoal('poll_confirm', { participants: total });
       await onChange();
     } catch (err) {
       setError(err instanceof ApiError ? err.message : 'Не удалось назначить время');

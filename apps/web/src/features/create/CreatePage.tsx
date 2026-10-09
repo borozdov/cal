@@ -2,6 +2,7 @@ import { useState, type FormEvent } from 'react';
 import { useNavigate } from 'react-router';
 import { MAX_DAYS, MAX_TIMES, type PollCreated } from '@cal/shared';
 import { api, ApiError } from '../../api/client.js';
+import { trackGoal } from '../../lib/metrika.js';
 import { Banner } from '../../primitives/Banner.js';
 import { Button } from '../../primitives/Button.js';
 import { Chip } from '../../primitives/Chip.js';
@@ -73,6 +74,7 @@ export function CreatePage() {
         times: allDay ? [] : times,
         duration,
       });
+      trackGoal('poll_create', { days: dates.length, times: allDay ? 0 : times.length });
       storage.rememberMyPoll({ slug: poll.slug, adminToken: poll.adminToken, title: title.trim() });
       navigate(`/p/${poll.slug}/admin/${poll.adminToken}`);
     } catch (err) {

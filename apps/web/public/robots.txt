@@ -1,2 +1,9 @@
+# Only the start page is content. /p/ are private meetings behind their own links,
+# /kitchen-sink is the primitives showcase.
 User-agent: *
+Allow: /$
+Disallow: /p/
 Disallow: /kitchen-sink
+Disallow: /api/
+
+Sitemap: https://cal.borozdov.ru/sitemap.xml

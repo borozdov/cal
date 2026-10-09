@@ -2,6 +2,7 @@ import { useState, type FormEvent } from 'react';
 import { Link } from 'react-router';
 import type { Poll } from '@cal/shared';
 import { api, ApiError } from '../../api/client.js';
+import { trackGoal } from '../../lib/metrika.js';
 import { Banner } from '../../primitives/Banner.js';
 import { Button } from '../../primitives/Button.js';
 import { Input } from '../../primitives/Input.js';
@@ -71,6 +72,7 @@ export function VoteView({ poll, onSaved }: { poll: Poll; onSaved: () => Promise
         slots: [...slots].filter((k) => optionKeys(poll).includes(k)).map(parseKey),
         force: force || undefined,
       });
+      trackGoal('poll_respond', { slots: slots.size, edit: participantId ? 1 : 0 });
       storage.saveParticipant(poll.slug, { id: result.participantId, name: name.trim() });
       setParticipantId(result.participantId);
       setSelected(slots);

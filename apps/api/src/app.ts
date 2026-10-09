@@ -24,8 +24,12 @@ const webDist = path.resolve(import.meta.dirname, '../../web/dist');
 if (existsSync(webDist)) {
   app.use('/assets', express.static(path.join(webDist, 'assets'), { immutable: true, maxAge: '1y' }));
   app.use(express.static(webDist, { index: false, maxAge: '1h' }));
-  app.get('/{*path}', (_req, res) => {
+  // Paths the SPA routes to. Anything else still gets the SPA (it renders NotFound) but
+  // with a real 404, so search engines do not index junk addresses as copies of `/`.
+  const spaRoute = /^\/(p\/[^/]+(\/admin\/[^/]+)?|kitchen-sink)?\/?$/;
+  app.get('/{*path}', (req, res) => {
     res.setHeader('Cache-Control', 'no-cache');
+    if (!spaRoute.test(req.path)) res.status(404);
     res.sendFile(path.join(webDist, 'index.html'));
   });
 }

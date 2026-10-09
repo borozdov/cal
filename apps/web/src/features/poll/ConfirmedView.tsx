@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { slotKey, type Poll } from '@cal/shared';
 import { api, ApiError } from '../../api/client.js';
+import { trackGoal } from '../../lib/metrika.js';
 import { Banner } from '../../primitives/Banner.js';
 import { Button } from '../../primitives/Button.js';
 import { formatDayLong, formatMinutes } from '../../lib/date.js';
@@ -54,7 +55,10 @@ export function ConfirmedView({ poll, adminToken, onChange }: ConfirmedViewProps
       <div className={styles.footer}>
         {error && <Banner variant="error">{error}</Banner>}
         <div className={styles.stack}>
-          <a href={`/api/polls/${poll.slug}/ics`} className={[buttonStyles.button, buttonStyles.primary].join(' ')}>
+          <a
+            href={`/api/polls/${poll.slug}/ics`}
+            onClick={() => trackGoal('ics_download')}
+            className={[buttonStyles.button, buttonStyles.primary].join(' ')}>
             ДОБАВИТЬ В КАЛЕНДАРЬ
           </a>
           {adminToken && (

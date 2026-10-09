@@ -1,9 +1,17 @@
 {
   "name": "Cal — планировщик групповых встреч",
   "short_name": "Cal",
-  "start_url": "/",
+  "description": "Найдите время, когда свободны все. Без регистрации.",
+  "id": "/",
+  "start_url": "/?utm_source=pwa&utm_medium=homescreen",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#0d0d0d",
   "theme_color": "#0d0d0d",
-  "lang": "ru"
+  "lang": "ru",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
 }
